@@ -1955,7 +1955,6 @@ static const struct snd_kcontrol_new msm_dig_snd_controls[] = {
 	SOC_SINGLE_SX_TLV("IIR2 INP1 Volume",
 			  MSM89XX_CDC_CORE_IIR2_GAIN_B1_CTL,
 			0,  -84, 40, digital_gain),
-
 #ifndef CONFIG_SOUND_CONTROL
 	SOC_SINGLE_SX_TLV("RX1 Digital Volume",
 		MSM89XX_CDC_CORE_RX1_VOL_CTL_B2_CTL,
@@ -1966,7 +1965,6 @@ static const struct snd_kcontrol_new msm_dig_snd_controls[] = {
 	SOC_SINGLE_SX_TLV("RX3 Digital Volume",
 		MSM89XX_CDC_CORE_RX3_VOL_CTL_B2_CTL,
 		0, -84, 40, digital_gain),
-	
 #endif	
 	SOC_SINGLE_EXT("IIR1 Enable Band1", IIR1, BAND1, 1, 0,
 		msm_dig_cdc_get_iir_enable_audio_mixer,
@@ -2509,7 +2507,7 @@ static int msm_dig_cdc_probe(struct platform_device *pdev)
 	if (sound_control_kobj == NULL) {
 		pr_warn("%s kobject create failed!\n", __func__);
         }
-	
+
 	ret = sysfs_create_group(sound_control_kobj, &sound_control_attr_group);
 	if (ret) {
 		pr_warn("%s sysfs file create failed!\n", __func__);
